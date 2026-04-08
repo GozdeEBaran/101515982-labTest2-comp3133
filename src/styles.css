@@ -1,0 +1,25 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+  color-scheme: dark;
+  --app-bg: #0e0e12;
+  --app-card: #16161d;
+  --app-border: #2a2a33;
+  --app-muted: #9ea7b3;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--app-bg);
+  color: #eceff1;
+  font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+}
+
+.mat-mdc-toolbar.mat-primary {
+  background: linear-gradient(90deg, #1a237e, #311b92);
+}

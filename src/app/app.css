@@ -1,0 +1,54 @@
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.brand {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.04em;
+}
+
+.byline {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-left: 0.75rem;
+  align-self: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .byline {
+    display: none;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.active-link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.shell {
+  padding: 1.25rem clamp(1rem, 4vw, 2.5rem) 2.5rem;
+  max-width: 120rem;
+  margin: 0 auto;
+  min-height: calc(100vh - 8rem);
+}
+
+.site-footer {
+  padding: 1rem clamp(1rem, 4vw, 2.5rem) 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--app-muted, #9ea7b3);
+  border-top: 1px solid var(--app-border, #2a2a33);
+}
+
+.site-footer p {
+  margin: 0;
+}

@@ -1,0 +1,64 @@
+<section class="page">
+  <header class="page-head">
+    <h1>Character list</h1>
+    <p class="lede">Every figure returned by the public HP API (Figure&nbsp;1 style view).</p>
+  </header>
+
+  @if (loading()) {
+    <div class="state">
+      <mat-spinner diameter="48" />
+      <p>Summoning characters…</p>
+    </div>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else {
+    <mat-form-field appearance="outline" class="search">
+      <mat-label>Search by name</mat-label>
+      <input
+        matInput
+        name="charSearch"
+        [ngModel]="nameFilter()"
+        (ngModelChange)="nameFilter.set($event)"
+        placeholder="e.g. Potter"
+      />
+    </mat-form-field>
+
+    <div class="grid">
+      @for (c of visibleCharacters(); track c.id) {
+        <mat-card class="card">
+          <div class="thumb">
+            @if (c.image) {
+              <img [src]="c.image" [alt]="c.name" loading="lazy" />
+            } @else {
+              <div class="no-photo">No image</div>
+            }
+          </div>
+          <mat-card-content class="body">
+            <h2 class="name">{{ c.name }}</h2>
+            @switch (c.house) {
+              @case ('Gryffindor') {
+                <p class="house gryffindor">{{ c.house }}</p>
+              }
+              @case ('Slytherin') {
+                <p class="house slytherin">{{ c.house }}</p>
+              }
+              @case ('Ravenclaw') {
+                <p class="house ravenclaw">{{ c.house }}</p>
+              }
+              @case ('Hufflepuff') {
+                <p class="house hufflepuff">{{ c.house }}</p>
+              }
+              @default {
+                <p class="house unassigned">{{ c.house || 'No house' }}</p>
+              }
+            }
+            <p class="actor">Actor: {{ c.actor || '—' }}</p>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <a mat-stroked-button color="accent" [routerLink]="['/character', c.id]">Open details</a>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  }
+</section>

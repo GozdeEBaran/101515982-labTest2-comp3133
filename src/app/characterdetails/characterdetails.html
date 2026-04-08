@@ -1,0 +1,90 @@
+<section class="page">
+  <a mat-button routerLink="/characters" class="back">← Back to list</a>
+
+  @if (loading()) {
+    <div class="state">
+      <mat-spinner diameter="48" />
+      <p>Loading character…</p>
+    </div>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else if (character(); as ch) {
+    <mat-card class="detail-card">
+      <div class="layout">
+        <div class="portrait">
+          @if (ch.image) {
+            <img [src]="ch.image" [alt]="ch.name" />
+          } @else {
+            <div class="no-photo">No image</div>
+          }
+        </div>
+        <div class="facts">
+          @switch (ch.house) {
+            @case ('Gryffindor') {
+              <h1 class="title gryffindor">{{ ch.name }}</h1>
+            }
+            @case ('Slytherin') {
+              <h1 class="title slytherin">{{ ch.name }}</h1>
+            }
+            @case ('Ravenclaw') {
+              <h1 class="title ravenclaw">{{ ch.name }}</h1>
+            }
+            @case ('Hufflepuff') {
+              <h1 class="title hufflepuff">{{ ch.name }}</h1>
+            }
+            @default {
+              <h1 class="title default">{{ ch.name }}</h1>
+            }
+          }
+
+          <mat-divider />
+
+          <dl class="rows">
+            <div class="row">
+              <dt>House</dt>
+              <dd>{{ ch.house || '—' }}</dd>
+            </div>
+            <div class="row">
+              <dt>Actor</dt>
+              <dd>{{ ch.actor || '—' }}</dd>
+            </div>
+            <div class="row">
+              <dt>Wizard</dt>
+              <dd>{{ ch.wizard }}</dd>
+            </div>
+            <div class="row">
+              <dt>Species</dt>
+              <dd>{{ ch.species || '—' }}</dd>
+            </div>
+            <div class="row">
+              <dt>Ancestry</dt>
+              <dd>{{ ch.ancestry || '—' }}</dd>
+            </div>
+            <div class="row">
+              <dt>Wand (summary)</dt>
+              <dd>{{ ch.wand | wandSummary }}</dd>
+            </div>
+            <div class="row">
+              <dt>Wand wood</dt>
+              <dd>{{ ch.wand.wood || '—' }}</dd>
+            </div>
+            <div class="row">
+              <dt>Wand core</dt>
+              <dd>{{ ch.wand.core || '—' }}</dd>
+            </div>
+            <div class="row">
+              <dt>Wand length</dt>
+              <dd>
+                @if (ch.wand.length === null || ch.wand.length === undefined || ch.wand.length === '') {
+                  —
+                } @else {
+                  {{ ch.wand.length }}
+                }
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </mat-card>
+  }
+</section>
