@@ -18,4 +18,3 @@ Angular app that reads the public [Harry Potter API](https://hp-api.onrender.com
 | **Material**          | Toolbar, cards, buttons, form field, select, spinner, divider.                                                                                                                    |
 | **Styling**           | Global dark layout + prebuilt Material theme in `src/styles.css`.                                                                                                                 |
 
-> **Note:** The lab mentions `HttpClientModule`. In current Angular, `provideHttpClient()` in `app.config.ts` is the supported way to register the same HTTP client APIs.
