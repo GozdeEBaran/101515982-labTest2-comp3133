@@ -4,8 +4,7 @@
 **Student ID:** 101515982  
 **Course:** COMP 3133 — Lab Test 2 (Option 2b, Harry Potter)
 
-Angular app that reads the public [Harry Potter API](https://hp-api.onrender.com/) (`HttpClient`). Layout and responsibilities are similar to a typical course submission (list → filter → detail, dedicated service, typed models, Angular Material), but **this codebase was written independently** for your own repository—do not copy another student’s project file-for-file.
-
+Angular app that reads the public [Harry Potter API](https://hp-api.onrender.com/) (`HttpClient`). 
 ## Features
 
 | Area                  | What it does                                                                                                                                                                      |
